@@ -31,7 +31,7 @@
       #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.socket.domain.User" >
+  <insert id="insertSelective" useGeneratedKeys="true" parameterType="com.socket.domain.User" >
     insert into u_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -114,4 +114,9 @@
       status = #{status,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <select id="findByEmail" resultType="com.socket.domain.User">
+    select * from u_user u
+    where u.email = #{email}
+  </select>
 </mapper>

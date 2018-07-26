@@ -15,7 +15,7 @@ public class User {
 
     private Date lastLoginTime;
 
-    private Long status;
+    private Integer status;
 
     public Long getId() {
         return id;
@@ -65,11 +65,11 @@ public class User {
         this.lastLoginTime = lastLoginTime;
     }
 
-    public Long getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Long status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

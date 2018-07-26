@@ -1,6 +1,7 @@
 package com.socket.mapper;
 
 import com.socket.domain.User;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +15,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User findByEmail(@Param("email") String email);
 }

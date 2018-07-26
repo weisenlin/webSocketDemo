@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     <!-- col-lg-12 start here -->
-                                    <button class="btn btn-success btn-block">Register</button>
+                                    <button type="button" onclick="registerUser()" class="btn btn-success btn-block">Register</button>
                                 </div>
                                 <!-- col-lg-12 end here -->
                             </div>
@@ -164,6 +164,24 @@
         <script src="assets/js/pages/login.js"></script>
     </body>
     <script>
+
+        function registerUser(){
+            var data = $("#register-form").serialize();
+            $.ajax({
+                type:"post",
+                url:"/user/register",
+                data:data,
+                success:function(result){
+                    if(result.code==401){
+                        var data = result.data;
+                        console.log(data);
+                        alert(data[0].defaultMessage);
+                        return;
+                    }
+                    alert(result.message);
+                }
+            })
+        }
         $(function(){
             $("input").focus(function(){
                 $(this).select();
