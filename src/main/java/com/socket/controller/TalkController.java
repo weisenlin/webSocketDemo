@@ -1,4 +1,4 @@
-package com.socket;
+package com.socket.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
